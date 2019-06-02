@@ -28,6 +28,17 @@ public class Zadanie1 extends JFrame implements ActionListener {
         mRadio2 = new JMenuItem("Another radio button");
         mSubMenu = new JMenuItem("A submenu");
 
+        //BOOKMARKS
+        menuBar = new JMenuBar();
+        menuFile = new JMenu("File");
+        menuEdit = new JMenu("Edit");
+
+        //DODANIE MENU BAR DO OKNA I DODANIE ZAKŁADEK
+        setJMenuBar(menuBar);
+        menuBar.add(menuFile);
+        menuBar.add(menuEdit);
+
+
         //DODANIE ZAKŁADEK DO OKNA
         menuFile.add(mProject);
         menuFile.add(mFile);
@@ -39,17 +50,6 @@ public class Zadanie1 extends JFrame implements ActionListener {
         menuFile.add(mRadio2);
         menuFile.addSeparator();
         menuFile.add(mSubMenu);
-
-        //BOOKMARKS
-        menuBar = new JMenuBar();
-        menuFile = new JMenu("File");
-        menuEdit = new JMenu("Edit");
-
-        //DODANIE MENU BAR DO OKNA I DODANIE ZAKŁADEK
-        setJMenuBar(menuBar);
-        menuBar.add(menuFile);
-        menuBar.add(menuEdit);
-
         //LABELS
         lLiczba1 = new JLabel("Liczba 1", JLabel.RIGHT);
         lLiczba1.setBounds(10,0,50,30);
@@ -90,7 +90,7 @@ public class Zadanie1 extends JFrame implements ActionListener {
         bOblicz.addActionListener(this);
         bWyjście = new JButton("Wyjście");
         bWyjście.setBounds(250,100,90,30);
-        bOblicz.addActionListener(this);
+        bWyjście.addActionListener(this);
 
         //DODAWANIE PRZYCISKÓW
         add(bOblicz);
@@ -107,16 +107,16 @@ public class Zadanie1 extends JFrame implements ActionListener {
     //przeciążona metoda actionPerformed pozwala mi korzystanie z przycisków i mówi co dalej robić po kliknięciu za pomocą IF'ów.
     @Override
     public void actionPerformed(ActionEvent e) {
-        Object źródło = e.getSource();
-        if (źródło == bWyjście){
+        Object zrodło = e.getSource();
+        if(zrodło == bWyjście){
             dispose();
-        }else if (źródło == bOblicz){
+        }else if (zrodło == bOblicz){
             double liczba1 = Integer.parseInt(tfLiczba1.getText());
             double liczba2 = Integer.parseInt(tfLLiczba2.getText());
-            Mnożenie mnożenie = new Mnożenie(liczba1, liczba2);
-            double rozwiązanie = mnożenie.rozwiąż();
+            Mnożenie mnozenie = new Mnożenie(liczba1, liczba2);
+            double rozwiazanie = mnozenie.rozwiąż();
             //String.valueOf przekształca typ double na Stringa
-            tfWynik.setText(String.valueOf(rozwiązanie));
+            tfWynik.setText(String.valueOf(rozwiazanie));
 
 
         }
