@@ -108,8 +108,18 @@ public class Zadanie1 extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Object zrodło = e.getSource();
-        if(zrodło == bWyjście){
-            dispose();
+        if(zrodło == bWyjście){ {
+            //OKNA DIALOGOWE z klasy JOptionPane pozwala na sporo ale mało wiem ;d
+            int odp = JOptionPane.showConfirmDialog(null,"Czy na pewno chcesz wyjść?","Tytuł",JOptionPane.YES_NO_CANCEL_OPTION);
+            if(odp==JOptionPane.YES_OPTION)
+                dispose();
+            if(odp==JOptionPane.NO_OPTION)
+                JOptionPane.showMessageDialog(null, "To bardzo ciekawy program daj nam szansę ;d");
+            if(odp==JOptionPane.CANCEL_OPTION)
+                JOptionPane.showMessageDialog(null, "To bardzo ciekawy program daj nam szansę ;d");
+
+
+        }
         }else if (zrodło == bOblicz){
             double liczba1 = Integer.parseInt(tfLiczba1.getText());
             double liczba2 = Integer.parseInt(tfLLiczba2.getText());
